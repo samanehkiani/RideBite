@@ -6,7 +6,7 @@ CREATE TABLE FoodService.Users
 
     Phone VARCHAR(15) NOT NULL,
 
-    Email NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) NOT NULL UNIQUE,
 
     PasswordHash NVARCHAR(255) NOT NULL,
 
@@ -137,7 +137,8 @@ CREATE TABLE FoodService.OrderItems
 
     FoodID INT NOT NULL,
 
-    Quantity INT NOT NULL,
+    Quantity INT NOT NULL
+	CHECK (Quantity > 0),
 
     UnitPrice DECIMAL(10,2) NOT NULL,
 
@@ -173,7 +174,8 @@ CREATE TABLE FoodService.FoodReviews
 
     OrderItemID INT NOT NULL,
 
-    Rating TINYINT NOT NULL,
+    Rating TINYINT NOT NULL
+	CHECK (Rating BETWEEN 1 AND 5),
 
     Comment NVARCHAR(500) NULL,
 
