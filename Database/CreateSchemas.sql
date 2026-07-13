@@ -1,0 +1,11 @@
+CREATE SCHEMA FoodService;
+GO
+
+CREATE SCHEMA RideService;
+GO
+
+CREATE SCHEMA Security;
+GO
+
+CREATE SCHEMA Staging;
+GO
