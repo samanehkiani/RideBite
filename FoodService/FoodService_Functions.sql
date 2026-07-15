@@ -1,6 +1,7 @@
 USE RideBite;
 GO
 
+DROP FUNCTION IF EXISTS FoodService.fn_GetOrderTotal;
 DROP FUNCTION IF EXISTS FoodService.fn_GetFoodDiscountedPrice;
 DROP FUNCTION IF EXISTS FoodService.fn_GetOrderItemsSubtotal;
 DROP FUNCTION IF EXISTS FoodService.fn_GetOrderItemsDetails;
