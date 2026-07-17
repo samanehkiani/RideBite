@@ -1,5 +1,10 @@
 USE RideBite;
 GO
+DROP PROCEDURE IF EXISTS FoodService.sp_CreateOrder;
+DROP PROCEDURE IF EXISTS FoodService.sp_UpdateOrderStatus;
+DROP PROCEDURE IF EXISTS FoodService.sp_ArchiveOldOrders;
+GO
+
 
 IF TYPE_ID(N'FoodService.OrderItemType') IS NOT NULL
     DROP TYPE FoodService.OrderItemType;
@@ -58,7 +63,7 @@ BEGIN
         DECLARE @Tax DECIMAL(10,2);
 
         SELECT @Subtotal = SUM(TotalPrice) FROM FoodService.OrderItems WHERE OrderID = @NewOrderID;
-        SET @Tax = @Subtotal * 0.09;  -- نرخ مالیات نمونه؛ قابل تنظیم
+        SET @Tax = @Subtotal * 0.09;  
 
         UPDATE FoodService.Orders
         SET Subtotal    = @Subtotal,
